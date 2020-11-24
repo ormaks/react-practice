@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 module.exports = {
     entry: './src/index',
     output: {
@@ -25,7 +27,7 @@ module.exports = {
             },
 
             {
-                test: /\.(jpg|png|svg|webm)$/,
+                test: /\.(jpg|png|svg|webm|ico)$/,
                 use: {
                     loader: 'file-loader',
                     options: {
@@ -46,12 +48,19 @@ module.exports = {
                     }
                 ]
             }
-
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html'
-        })
+        }),
+        new CopyWebpackPlugin(
+          {
+              patterns: [{
+                  from: "./src/manifest.json",
+                  to: "./manifest.json"
+              }]
+          }
+        )
     ]
 };
