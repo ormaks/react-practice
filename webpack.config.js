@@ -1,66 +1,69 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require("path")
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-module.exports = {
-    entry: './src/index',
-    output: {
-        path: path.join(__dirname, '/dist'),
-        filename: 'bundle.js'
-    },
-    resolve: {
-        extensions: ['.ts', '.tsx', '.js']
-    },
-
-    module: {
-        rules: [
-            {
-                test: /\.(ts|js)x?$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader'
-                },
+module.exports = (env) => {
+    const modules = {
+        js: {
+            test: /\.(ts|js)x?$/,
+            exclude: /node_modules/,
+            use: {
+                loader: 'babel-loader'
             },
-            {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+        },
+        images: {
+            test: /\.(jpg|png|svg|webm|ico)$/,
+            use: {
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                    outputPath: 'images/'
+                }
             },
-
-            {
-                test: /\.(jpg|png|svg|webm|ico)$/,
-                use: {
+        },
+        fonts: {
+            test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+            use: [
+                {
                     loader: 'file-loader',
                     options: {
                         name: '[name].[ext]',
-                        outputPath: 'images/'
+                        outputPath: 'fonts/'
                     }
+                }
+            ]
+        },
+        css: {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader']
+        },
+        cssIsomorph: {
+            test:  /\.css$/,
+            use: [
+                {
+                    loader: MiniCssExtractPlugin.loader,
                 },
-            },
-            {
-                test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[name].[ext]',
-                            outputPath: 'fonts/'
-                        }
-                    }
-                ]
-            }
-        ]
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: './src/index.html'
-        }),
-        new CopyWebpackPlugin(
-          {
-              patterns: [{
-                  from: "./src/manifest.json",
-                  to: "./manifest.json"
-              }]
-          }
-        )
-    ]
-};
+                {
+                    loader: "css-loader",
+                },
+            ],
+        },
+    }
+
+    if (env === 'production') {
+        modules.css.use.splice(2, 0, { loader: "postcss-loader" })
+        modules.cssIsomorph.use.splice(2, 0, { loader: "postcss-loader" })
+    }
+
+    const resolve = {
+        extensions: [".ts", ".tsx", ".js", ".jsx"],
+        alias: {
+            App: path.resolve(__dirname, 'src/App/'),
+            Pages: path.resolve(__dirname, 'src/Pages/'),
+        },
+    }
+
+    return {
+        modules,
+        resolve,
+    }
+}
