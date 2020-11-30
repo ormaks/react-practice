@@ -10,7 +10,8 @@
     "baseUrl": "./",
     "paths": {
       "App": ["src/App"],
-      "Pages/*": ["src/Pages/*"]
+      "Pages/*": ["src/Pages/*"],
+      "assets/*": ["src/assets/*"]
     }
   },
   "exclude": [

@@ -10,10 +10,14 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     background: white;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
+    height: 100%;
+     &::-webkit-scrollbar {
+  display: none;
+}
   }
-  
+  section{
+    display: inline-block;
+  }
   @font-face {
         font-family: 'Optima';
         src: 
