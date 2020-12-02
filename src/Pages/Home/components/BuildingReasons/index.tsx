@@ -41,11 +41,10 @@ export const BuildingReasons: FC<IProps> = ({progress}) => {
                                     loop={false}
                                     animationData={Icon1}
                                     play={false}
-                                    goTo={progress*50}
-                                    style={{ width: 492, height: 165 }}
+                                    goTo={progress*70}
                                 />
                             </Icon>
-                            <IconTextWrapper>
+                            <IconTextWrapper style={{opacity: progress < 0.2 ? 0 : (progress - 0.2) * 2}}>
                                 <IconNumber>01</IconNumber>
                                 <IconText>
                                     Incredible<br/>
@@ -59,11 +58,11 @@ export const BuildingReasons: FC<IProps> = ({progress}) => {
                                 <Lottie
                                     loop={false}
                                     animationData={Icon1}
-                                    play
-                                    style={{ width: 492, height: 165 }}
+                                    play={false}
+                                    goTo={(progress - 0.1) * 60}
                                 />
                             </Icon>
-                            <IconTextWrapper>
+                            <IconTextWrapper style={{opacity: (progress - 0.3) * 1.8}}>
                                 <IconNumber>02</IconNumber>
                                 <IconText>
                                     Metro-link<br/>
@@ -77,11 +76,11 @@ export const BuildingReasons: FC<IProps> = ({progress}) => {
                                 <Lottie
                                     loop={false}
                                     animationData={Icon1}
-                                    play
-                                    style={{ width: 492, height: 165 }}
+                                    play={false}
+                                    goTo={(progress - 0.2) * 60}
                                 />
                             </Icon>
-                            <IconTextWrapper>
+                            <IconTextWrapper style={{opacity: (progress - 0.5) * 2}}>
                                 <IconNumber>03</IconNumber>
                                 <IconText>
                                     97%<br/>
@@ -95,11 +94,11 @@ export const BuildingReasons: FC<IProps> = ({progress}) => {
                                 <Lottie
                                     loop={false}
                                     animationData={Icon1}
-                                    play
-                                    style={{ width: 492, height: 165 }}
+                                    play={false}
+                                    goTo={(progress - 0.1) * 60}
                                 />
                             </Icon>
-                            <IconTextWrapper>
+                            <IconTextWrapper style={{opacity: (progress - 0.3) * 1.8}}>
                                 <IconNumber>04</IconNumber>
                                 <IconText>
                                     Operable<br/>
@@ -113,11 +112,11 @@ export const BuildingReasons: FC<IProps> = ({progress}) => {
                                 <Lottie
                                     loop={false}
                                     animationData={Icon1}
-                                    play
-                                    style={{ width: 492, height: 165 }}
+                                    play={false}
+                                    goTo={(progress - 0.2) * 60}
                                 />
                             </Icon>
-                            <IconTextWrapper>
+                            <IconTextWrapper style={{opacity: (progress - 0.5) * 2}}>
                                 <IconNumber>05</IconNumber>
                                 <IconText>
                                     Internal<br/>
@@ -131,11 +130,11 @@ export const BuildingReasons: FC<IProps> = ({progress}) => {
                                 <Lottie
                                     loop={false}
                                     animationData={Icon1}
-                                    play
-                                    style={{ width: 492, height: 165 }}
+                                    play={false}
+                                    goTo={(progress - 0.3) * 60}
                                 />
                             </Icon>
-                            <IconTextWrapper>
+                            <IconTextWrapper style={{opacity: (progress - 0.7) * 3.5}}>
                                 <IconNumber>06</IconNumber>
                                 <IconText>
                                     Separate<br/>
@@ -149,11 +148,11 @@ export const BuildingReasons: FC<IProps> = ({progress}) => {
                                 <Lottie
                                     loop={false}
                                     animationData={Icon1}
-                                    play
-                                    style={{ width: 492, height: 165 }}
+                                    play={false}
+                                    goTo={(progress - 0.2) * 60}
                                 />
                             </Icon>
-                            <IconTextWrapper>
+                            <IconTextWrapper style={{opacity: (progress - 0.5) * 2}}>
                                 <IconNumber>07</IconNumber>
                                 <IconText>
                                     Oversized,<br/>
@@ -167,11 +166,11 @@ export const BuildingReasons: FC<IProps> = ({progress}) => {
                                 <Lottie
                                     loop={false}
                                     animationData={Icon1}
-                                    play
-                                    style={{ width: 492, height: 165 }}
+                                    play={false}
+                                    goTo={(progress - 0.3) * 60}
                                 />
                             </Icon>
-                            <IconTextWrapper>
+                            <IconTextWrapper style={{opacity: (progress - 0.7) * 3.5}}>
                                 <IconNumber>08</IconNumber>
                                 <IconText>
                                     Escalators<br/>
@@ -185,11 +184,12 @@ export const BuildingReasons: FC<IProps> = ({progress}) => {
                                 <Lottie
                                     loop={false}
                                     animationData={Icon1}
-                                    play
-                                    style={{ width: 492, height: 165 }}
+                                    play={false}
+                                    goTo={(progress - 0.6) * 110}
+
                                 />
                             </Icon>
-                            <IconTextWrapper>
+                            <IconTextWrapper style={{opacity: (progress - 0.8) * 5}}>
                                 <IconNumber>09</IconNumber>
                                 <IconText>
                                     80,000 sq ft<br/>

@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useState} from 'react'
+import React, {FC, useEffect} from 'react'
 import {Controller, Scene} from 'react-scrollmagic';
 import {Main} from "Pages/Home/components/Main";
 import {MainIntro} from "Pages/Home/components/MainIntro";
@@ -11,7 +11,7 @@ import {BuildingMainSection} from "Pages/Home/components/BuildingImage/index.sty
 import {MainIntroSection} from "Pages/Home/components/MainIntro/index.styled";
 
 export const Home: FC = () => {
-    const [windowWidth, setWindowWidth] = useState<number>(0);
+    /*const [windowWidth, setWindowWidth] = useState<number>(0);
     useEffect(() => {
         setWindowWidth(window.innerWidth)
     }, [])
@@ -23,7 +23,7 @@ export const Home: FC = () => {
 
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
-    }, []);
+    }, []);*/
 
     useEffect(() => {
 
@@ -75,12 +75,13 @@ export const Home: FC = () => {
                         }}
                     </Scene>
                     <Scene
-                        duration={'100%'}
+                        duration={'75%'}
                         triggerHook={'onEnter'}
                         indicators={true}
+                        offset={500}
                     >
                         {function (progress: number) {
-                            console.log(progress);
+                            // console.log(progress);
                             return (
                                 <BuildingReasonsSection className={'main-intro-section'}>
                                     <BuildingReasons progress={progress}/>

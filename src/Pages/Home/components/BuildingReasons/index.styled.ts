@@ -1,7 +1,7 @@
 import styled from "styled-components";
 export const BuildingReasonsSection = styled.section`
     height: 100vh;
-    width: 110vw;
+    width: 100vw;
     position: relative;
     overflow: hidden;
     `
@@ -23,14 +23,13 @@ export const BuildingReasonsIconsContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
-    justify-content: space-between;
     height: calc(100% - 350px);
     padding: 230px 0 120px;
     `
 
 export const IconItemWrapper = styled.div`
     display: flex;
-    width: 33.3%;
+    margin-right: 120px;
     `
 
 export const Icon = styled.div`
@@ -38,12 +37,19 @@ export const Icon = styled.div`
     height: 164px;
     margin-right: 25px;
     overflow: hidden;
+    > div {
+        width: 630px;
+        height: 195px;
+        margin-top: -15px;
+        margin-left: -38px;
+    }
     `
 
 export const IconTextWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    transition: opacity .2s;
     `
 
 export const IconNumber = styled.span`
